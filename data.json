@@ -1,0 +1,309 @@
+{
+  "config": {
+    "startYear": 1997,
+    "endYear": 2025
+  },
+  "data": [
+    {
+      "type": "Study",
+    "data": [
+      {
+        "name": "Data Processing High School - Eniac School",
+        "dates": [{ "start": "Jan-1997", "end": "Dec-1999" }]
+      },
+      {
+        "name": "Bachelor in Computer Science - PUC-SP",
+        "dates": [{ "start": "Jan-2000", "end": "Dec-2003" }]
+      }
+    ]
+  },
+  {
+    "type": "Work",
+    "data": [
+      {
+        "name": "Laboratory Helper - Eniac School",
+        "company": "Eniac School",
+        "dates": [{ "start": "Mar-1999", "end": "Jun-1999" }]
+      },
+      {
+        "name": "HTML and Hardware Teacher - Onion School",
+        "company": "Onion School",
+        "dates": [{ "start": "Mar-2000", "end": "Jun-2000" }]
+      },
+      {
+        "name": "Java Junior Developer - SSI",
+        "company": "SSI",
+        "dates": [{ "start": "Jul-2000", "end": "Apr-2003" }]
+      },
+      {
+        "name": "Java Mid-Senior Developer - Ultracon",
+        "company": "Ultracon",
+        "dates": [{ "start": "May-2003", "end": "Dec-2005" }]
+      },
+      {
+        "name": "Java Senior Developer - SulAmerica",
+        "company": "SulAmerica",
+        "dates": [{ "start": "Jan-2006", "end": "Dec-2006" }]
+      },
+      {
+        "name": "Java Tech Lead - SIMPRO",
+        "company": "SIMPRO",
+        "dates": [{ "start": "Jan-2007", "end": "Aug-2008" }]
+      },
+      {
+        "name": "Java Tech Lead - NC4U",
+        "company": "NC4U",
+        "dates": [{ "start": "Sep-2008", "end": "Apr-2010" }]
+      },
+      {
+        "name": "Co-Founder and Android Tech Lead - Yotta Apps",
+        "company": "Yotta Apps",
+        "dates": [{ "start": "Sep-2010", "end": "Dec-2014" }]
+      },
+      {
+        "name": "Android Tech Lead - Tecsinapse",
+        "company": "Tecsinapse",
+        "dates": [{ "start": "Jan-2015", "end": "Nov-2016" }]
+      },
+      {
+        "name": "Android Senior Developer - ArcTouch",
+        "company": "ArcTouch",
+        "dates": [{ "start": "Dec-2016", "end": "Oct-2022" }]
+      },
+      {
+        "name": "Android Senior Developer - Shield AI",
+        "company": "Shield AI",
+        "dates": [{ "start": "May-2023", "end": "Oct-2023" }]
+      },
+      {
+        "name": "Android Senior Developer - Sam's Club",
+        "company": "Sam's Club",
+        "dates": [{ "start": "May-2024", "end": "Oct-2024" }]
+      },
+      {
+        "name": "Full Stack Gen AI Tech Lead - Pactto",
+        "company": "Pactto",
+        "dates": [
+            { "start": "Feb-2024", "end": "Apr-2024" }, 
+            { "start": "Nov-2024", "end": "Mar-2025" }]
+      },
+      {
+        "name": "Full Stack Gen AI Developer - Meta",
+        "company": "Meta",
+        "dates": [{ "start": "Aug-2025", "end": null }]
+      }
+    ]
+  },
+  {
+    "type": "Client Projects",
+    "data": [
+      {
+        "name": "Intranet Siemens",
+        "dates": [{ "start": "Jul-2000", "end": "Apr-2001" }]
+      },
+      {
+        "name": "Pirelli Sinistro Pneus",
+        "dates": [{ "start": "Jun-2001", "end": "Aug-2001" }]
+      },
+      {
+        "name": "Reimbursement Siemens",
+        "dates": [{ "start": "Sep-2001", "end": "Apr-2003" }]
+      },
+      {
+        "name": "EAN / GS1 Website",
+        "dates": [{ "start": "Mar-2003", "end": "Aug-2004" }]
+      },
+      {
+        "name": "Sistema Boliche",
+        "dates": [{ "start": "Sep-2004", "end": "Jan-2005" }]
+      },
+      {
+        "name": "Ultrasip Exército",
+        "dates": [{ "start": "Feb-2005", "end": "Jun-2005" }]
+      },
+      {
+        "name": "CPFL Energia",
+        "dates": [{ "start": "Jul-2005", "end": "Dec-2005" }]
+      },
+      {
+        "name": "Glosa SulAmerica",
+        "dates": [{ "start": "Jan-2006", "end": "Dec-2006" }]
+      },
+      {
+        "name": "GPS - Guia Paciente de Risco",
+        "dates": [{ "start": "Jan-2007", "end": "Jun-2008" }]
+      },
+      {
+        "name": "NC4U Narrowcasting",
+        "dates": [{ "start": "Aug-2008", "end": "Jan-2010" }]
+      },
+      {
+        "name": "Khor RSUIApp",
+        "dates": [{ "start": "Feb-2014", "end": "Apr-2014" }]
+      },
+      {
+        "name": "Diarios App",
+        "dates": [{ "start": "Apr-2014", "end": "Jun-2014" }]
+      },
+      {
+        "name": "CAM IP",
+        "dates": [{ "start": "Jul-2014", "end": "Aug-2014" }]
+      },
+      {
+        "name": "Nissan VideoWall",
+        "dates": [{ "start": "Jul-2014", "end": "Dec-2014" }]
+      },
+      {
+        "name": "My Flyers",
+        "dates": [{ "start": "Jan-2015", "end": "Jul-2015" }]
+      },
+      {
+        "name": "Harleyros",
+        "dates": [{ "start": "Jul-2015", "end": "Nov-2015" }]
+      },
+      {
+        "name": "Presume",
+        "dates": [{ "start": "Oct-2015", "end": "Jan-2016" }]
+      },
+      {
+        "name": "Uptake",
+        "dates": [{ "start": "Feb-2016", "end": "Oct-2016" }]
+      },
+      {
+        "name": "HP Sprocket",
+        "dates": [{ "start": "Feb-2017", "end": "Oct-2017" }]
+      },
+      {
+        "name": "3M Filtrete",
+        "dates": [{ "start": "Nov-2017", "end": "Mar-2018" }]
+      },
+      {
+        "name": "Walmart App",
+        "dates": [{ "start": "Apr-2018", "end": "Oct-2022" }]
+      },
+      {
+        "name": "Shield.ai",
+        "dates": [{ "start": "May-2023", "end": "Oct-2023" }]
+      },
+      {
+        "name": "Pactto Backend",
+        "dates": [{ "start": "Feb-2024", "end": "May-2024" }]
+      },
+      {
+        "name": "Sam's Club Glass",
+        "dates": [{ "start": "May-2024", "end": "Oct-2024" }]
+      },
+      {
+        "name": "Pactto Video GenAi Workflow",
+        "dates": [{ "start": "Nov-2024", "end": "Mar-2025" }]
+      }
+    ]
+  },  {
+    "type": "Side Projects",
+    "data": [
+      {
+        "name": "Twister Site",
+        "dates": [{ "start": "Aug-1997", "end": "Dec-1999" }]
+      },
+      {
+        "name": "Tic Tac Toe Tchau",
+        "dates": [{ "start": "Mar-1998", "end": "Sep-1998" }]
+      },
+      {
+        "name": "Eniac Chat",
+        "dates": [{ "start": "Jan-1999", "end": "Mar-1999" }]
+      },
+      {
+        "name": "Legião Fênix Website",
+        "dates": [{ "start": "Apr-1999", "end": "Jun-2002" }]
+      },
+      {
+        "name": "Legião Fênix Fórum",
+        "dates": [{ "start": "Jul-2000", "end": "Jun-2002" }]
+      },
+      {
+        "name": "CobraRadar",
+        "dates": [{ "start": "Sep-2001", "end": "Aug-2004" }]
+      },
+      {
+        "name": "TNTNP Blog",
+        "dates": [{ "start": "Dec-2004", "end": "Dec-2007" }]
+      },
+      {
+        "name": "Campo Minado Web",
+        "dates": [{ "start": "Mar-2009", "end": "Jun-2009" }]
+      },
+      {
+        "name": "Ops Fiscalize",
+        "dates": [{ "start": "Jan-2014", "end": null }]
+      }
+    ]
+  },
+  {
+    "type": "Own Projects",
+    "data": [
+      {
+        "name": "De Olho na Estrada",
+        "dates": [{ "start": "Sep-2010", "end": "Dec-2014" }]
+      },
+      {
+        "name": "iCaipirinha",
+        "dates": [{ "start": "Nov-2010", "end": "Dec-2014" }]
+      },
+      {
+        "name": "Guia de Charutarias",
+        "dates": [{ "start": "Feb-2011", "end": "Dec-2014" }]
+      },
+      {
+        "name": "De Olho nas Ondas",
+        "dates": [{ "start": "Aug-2011", "end": "Dec-2014" }]
+      },
+      {
+        "name": "Toda Lagoa",
+        "dates": [{ "start": "Feb-2012", "end": "Dec-2012" }]
+      },
+      {
+        "name": "e-Scola",
+        "dates": [{ "start": "Aug-2012", "end": "Dec-2014" }]
+      },
+      {
+        "name": "Risadaria",
+        "dates": [{ "start": "Feb-2013", "end": "Dec-2013" }]
+      },
+      {
+        "name": "Sin Combustible",
+        "dates": [{ "start": "Jun-2013", "end": "Dec-2014" }]
+      },
+      {
+        "name": "Delivery Box",
+        "dates": [{ "start": "Sep-2013", "end": "Dec-2014" }]
+      },
+      {
+        "name": "Robot Escape",
+        "dates": [{ "start": "Nov-2013", "end": "Dec-2014" }]
+      },
+      {
+        "name": "Gaita.com.br",
+        "dates": [{ "start": "May-2016", "end": "Jul-2022" }]
+      },
+      {
+        "name": "Whassist.ai",
+        "dates": [{ "start": "Jul-2023", "end": "Nov-2023" }]
+      }
+    ]
+  },
+  {
+    "type": "Freelancer",
+    "data": [
+      {
+        "name": "Paulo Ovidio Project",
+        "dates": [{ "start": "Aug-2001", "end": "Apr-2002" }]
+      },
+      {
+        "name": "Shopping Tucuruvi Arquitetura",
+        "dates": [{ "start": "May-2004", "end": "Sep-2004" }]
+      }
+    ]
+  }
+]
+}

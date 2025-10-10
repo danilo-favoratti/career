@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Years & Months Contribution Graph</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="filters-container">
+            <div class="filter-checkboxes" id="filterCheckboxes">
+                <!-- Checkboxes will be dynamically generated -->
+            </div>
+        </div>
+        
+        <div class="graph-container">
+            <div class="graph-content">
+                <!-- Month labels (vertical) -->
+                <div class="month-labels">
+                    <div class="month-label">Jan</div>
+                    <div class="month-label">Feb</div>
+                    <div class="month-label">Mar</div>
+                    <div class="month-label">Apr</div>
+                    <div class="month-label">May</div>
+                    <div class="month-label">Jun</div>
+                    <div class="month-label">Jul</div>
+                    <div class="month-label">Aug</div>
+                    <div class="month-label">Sep</div>
+                    <div class="month-label">Oct</div>
+                    <div class="month-label">Nov</div>
+                    <div class="month-label">Dec</div>
+                </div>
+                
+                <!-- Scrollable graph area -->
+                <div class="graph-scroll">
+                    <!-- Year labels (horizontal) -->
+                    <div class="year-labels" id="yearLabels"></div>
+                    
+                    <!-- Contribution grid -->
+                    <div class="contribution-grid" id="contributionGrid"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <span>Less</span>
+            <div class="legend-colors">
+                <div class="legend-square level-0"></div>
+                <div class="legend-square level-1"></div>
+                <div class="legend-square level-2"></div>
+                <div class="legend-square level-3"></div>
+                <div class="legend-square level-4"></div>
+                <div class="legend-square level-5"></div>
+                <div class="legend-square level-6"></div>
+                <div class="legend-square level-7"></div>
+                <div class="legend-square level-8"></div>
+                <div class="legend-square level-9"></div>
+            </div>
+            <span>More</span>
+        </div>
+        
+        <div class="tooltip" id="tooltip"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
