@@ -45,8 +45,19 @@ class ContributionGraph {
     
     async loadRealData() {
         try {
-            const response = await fetch('https://favoratti.com/career/data.json');
-            const jsonData = await response.json();
+            // Try to load from remote URL first
+            let response;
+            let jsonData;
+            
+            try {
+                response = await fetch('https://favoratti.com/career/data.json');
+                jsonData = await response.json();
+            } catch (corsError) {
+                console.warn('⚠️ CORS error loading remote data, falling back to local data.json');
+                // Fallback to local file
+                response = await fetch('./data.json');
+                jsonData = await response.json();
+            }
             
             // Extract configuration if available
             if (jsonData.config) {

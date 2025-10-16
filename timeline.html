@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background-color: #0d1117;
+            color: #f0f6fc;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #39d353, #26a641);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            color: #7d8590;
+            font-size: 1.1rem;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #161b22;
+            border-radius: 12px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #30363d;
+            background-color: #21262d;
+            color: #f0f6fc;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .filter-btn:hover {
+            border-color: #58a6ff;
+            background-color: #30363d;
+        }
+
+        .filter-btn.active {
+            border-color: #39d353;
+            background-color: #0d2818;
+            color: #39d353;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 60px;
+        }
+
+        /* Metro Line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #39d353, #26a641, #0e4429);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.5s ease;
+        }
+
+        .timeline-item.hidden {
+            opacity: 0;
+            transform: translateX(-20px);
+            height: 0;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+
+        /* Timeline Dots */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 4px solid #0d1117;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        /* Green dots for all project types */
+        .timeline-item[data-type="Client Projects"]::before { background-color: #39d353; }
+        .timeline-item[data-type="Side Projects"]::before { background-color: #39d353; }
+        .timeline-item[data-type="Own Projects"]::before { background-color: #39d353; }
+        .timeline-item[data-type="Freelancer"]::before { background-color: #39d353; }
+
+        .timeline-item:hover::before {
+            transform: scale(1.3);
+            box-shadow: 0 0 20px rgba(57, 211, 83, 0.5);
+        }
+
+        .timeline-content {
+            background-color: #161b22;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid #30363d;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-content:hover {
+            background-color: #1c2128;
+            border-left-color: #39d353;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .timeline-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-right: 24px;
+            border: 3px solid #30363d;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .timeline-content:hover .timeline-icon {
+            border-color: #39d353;
+            transform: scale(1.1);
+        }
+
+        .timeline-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .timeline-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: #58a6ff;
+            margin-bottom: 8px;
+        }
+
+        .timeline-dates {
+            font-size: 0.9rem;
+            color: #7d8590;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .timeline-description {
+            margin-top: 12px;
+            color: #c9d1d9;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .timeline-description-header {
+            margin-top: 8px;
+            color: #8b949e;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        .timeline-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .timeline-tag {
+            background-color: #21262d;
+            color: #58a6ff;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid #30363d;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-tag:hover {
+            background-color: #30363d;
+            border-color: #58a6ff;
+        }
+
+        .timeline-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #58a6ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-link:hover {
+            color: #79c0ff;
+            text-decoration: underline;
+        }
+
+        .timeline-link::before {
+            content: "🔗";
+            font-size: 0.8rem;
+        }
+
+        .timeline-screenshots {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            justify-content: start;
+        }
+
+        .timeline-screenshots.single-image {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .timeline-screenshots.two-images {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .timeline-screenshots .timeline-screenshot:nth-child(1) {
+            grid-column: 1;
+        }
+
+        .timeline-screenshots .timeline-screenshot:nth-child(2) {
+            grid-column: 2;
+        }
+
+        .timeline-screenshots .timeline-screenshot:nth-child(3) {
+            grid-column: 3;
+        }
+
+        .timeline-screenshot {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid #21262d;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #f6f8fa, #ffffff);
+            padding: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-screenshot:hover {
+            border-color: #58a6ff;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(88, 166, 255, 0.3);
+        }
+
+        .timeline-screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-screenshot:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-screenshot::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .timeline-screenshot:hover::before {
+            opacity: 0;
+        }
+
+        .timeline-screenshot-overlay {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(88, 166, 255, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            border-radius: 8px;
+            backdrop-filter: blur(2px);
+            z-index: 2;
+        }
+
+        .timeline-screenshot:hover .timeline-screenshot-overlay {
+            opacity: 1;
+        }
+
+        /* Modal for full-size screenshots */
+        .screenshot-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(2px);
+        }
+
+        .screenshot-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .screenshot-modal-content {
+            max-width: 70vw;
+            max-height: 70vh;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            background-color: #0d1117;
+            border: 3px solid #30363d;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-carousel-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            max-width: 60vw;
+            max-height: 60vh;
+            padding: 20px;
+        }
+
+        .modal-carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .modal-carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            z-index: 20;
+        }
+
+        .modal-carousel-nav:hover {
+            background: rgba(0, 0, 0, 0.95);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .modal-carousel-prev {
+            left: 20px;
+        }
+
+        .modal-carousel-next {
+            right: 20px;
+        }
+
+        .modal-carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+        }
+
+        .modal-carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-carousel-indicator.active {
+            background: #58a6ff;
+            transform: scale(1.3);
+        }
+
+        .modal-carousel-indicator:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .screenshot-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #30363d;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 30;
+        }
+
+        .screenshot-modal-close:hover {
+            background: rgba(248, 81, 73, 0.9);
+            border-color: #f85149;
+            transform: scale(1.1);
+        }
+
+        .timeline-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 16px;
+            gap: 12px;
+        }
+
+        .timeline-footer .timeline-tags {
+            margin-top: 0;
+            flex: 1;
+        }
+
+        .timeline-type {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            background: linear-gradient(135deg, #58a6ff, #4493f8, #347df0) !important;
+            border: 1px solid #58a6ff;
+            box-shadow: 0 1px 4px rgba(88, 166, 255, 0.2);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .timeline-type:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Type colors with enhanced styling */
+        .type-client-projects { 
+            --chip-color-1: #f85149; 
+            --chip-color-2: #da3633; 
+            --chip-border: #f85149; 
+            background: linear-gradient(135deg, #ff6b6b, #f85149, #da3633) !important;
+            color: white; 
+        }
+        .type-side-projects { 
+            --chip-color-1: #a5a5a5; 
+            --chip-color-2: #8b8b8b; 
+            --chip-border: #a5a5a5; 
+            background: linear-gradient(135deg, #c0c0c0, #a5a5a5, #8b8b8b) !important;
+            color: white; 
+        }
+        .type-own-projects { 
+            --chip-color-1: #d2a8ff; 
+            --chip-color-2: #b794f6; 
+            --chip-border: #d2a8ff; 
+            background: linear-gradient(135deg, #e9d5ff, #d2a8ff, #b794f6) !important;
+            color: #0d1117; 
+        }
+        .type-freelancer { 
+            --chip-color-1: #ffa657; 
+            --chip-color-2: #ff8c42; 
+            --chip-border: #ffa657; 
+            background: linear-gradient(135deg, #ffb84d, #ffa657, #ff8c42) !important;
+            color: #0d1117; 
+        }
+        .type-gap-year { 
+            --chip-color-1: #7c3aed; 
+            --chip-color-2: #6d28d9; 
+            --chip-border: #7c3aed; 
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed, #6d28d9) !important;
+            color: white; 
+        }
+
+        .ongoing {
+            position: relative;
+        }
+
+        .ongoing::after {
+            content: '🚀 Ongoing';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: linear-gradient(45deg, #39d353, #26a641);
+            color: #0d1117;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .timeline {
+                padding-left: 40px;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item::before {
+                left: 7px;
+                width: 12px;
+                height: 12px;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .timeline-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .timeline-footer .timeline-tags {
+                order: 1;
+            }
+
+            .timeline-type {
+                order: 2;
+                align-self: flex-end;
+                font-size: 0.7rem;
+                padding: 3px 8px;
+                border-radius: 10px;
+            }
+
+
+            .timeline-title {
+                font-size: 1.1rem;
+            }
+
+            .timeline-icon {
+                width: 72px;
+                height: 72px;
+                margin-right: 20px;
+                border-radius: 18px;
+                border-width: 2px;
+            }
+
+            .timeline-info {
+                gap: 12px;
+            }
+
+            .timeline-tags {
+                margin-top: 8px;
+            }
+
+            .timeline-tag {
+                font-size: 0.7rem;
+                padding: 2px 6px;
+            }
+
+            .timeline-description {
+                font-size: 0.9rem;
+                margin-top: 8px;
+            }
+
+            .timeline-description-header {
+                font-size: 0.85rem;
+                margin-top: 6px;
+                line-height: 1.3;
+            }
+
+            .timeline-link {
+                font-size: 0.85rem;
+            }
+
+            .timeline-screenshots {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                margin-top: 12px;
+            }
+
+            .timeline-screenshot {
+                aspect-ratio: 16/9;
+                padding: 3px;
+                border-width: 2px;
+            }
+
+            .screenshot-modal-content {
+                max-width: 90vw;
+                max-height: 75vh;
+                border-width: 2px;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            }
+
+            .modal-carousel-container {
+                max-width: 85vw;
+                max-height: 65vh;
+                padding: 15px;
+            }
+
+            .modal-carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .modal-carousel-prev {
+                left: 15px;
+            }
+
+            .modal-carousel-next {
+                right: 15px;
+            }
+
+            .modal-carousel-indicators {
+                bottom: 15px;
+                gap: 8px;
+            }
+
+            .modal-carousel-indicator {
+                width: 10px;
+                height: 10px;
+            }
+
+            .screenshot-modal-close {
+                top: 5px;
+                right: 5px;
+                width: 35px;
+                height: 35px;
+                font-size: 24px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #7d8590;
+        }
+
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #f85149;
+            background-color: rgba(248, 81, 73, 0.1);
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="filters" id="filters">
+            <!-- Filters will be generated dynamically -->
+        </div>
+
+        <div class="loading" id="loading">
+            Loading timeline data...
+        </div>
+
+        <div class="timeline" id="timeline" style="display: none;">
+            <!-- Timeline items will be generated dynamically -->
+        </div>
+
+        <div class="error" id="error" style="display: none;">
+            Failed to load timeline data. Please try again later.
+        </div>
+    </div>
+
+    <!-- Screenshot Modal -->
+    <div class="screenshot-modal" id="screenshotModal">
+        <div class="screenshot-modal-content">
+            <span class="screenshot-modal-close" id="modalClose">&times;</span>
+            <div class="modal-carousel-container">
+                <div class="modal-carousel-track" id="modalCarouselTrack">
+                    <!-- Images will be loaded dynamically -->
+                </div>
+                <button class="modal-carousel-nav modal-carousel-prev" id="modalPrev" aria-label="Previous">‹</button>
+                <button class="modal-carousel-nav modal-carousel-next" id="modalNext" aria-label="Next">›</button>
+                <div class="modal-carousel-indicators" id="modalIndicators">
+                    <!-- Indicators will be generated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class Timeline {
+            constructor() {
+                this.data = [];
+                this.activeFilters = new Set();
+                this.allItems = [];
+                this.init();
+            }
+
+            async init() {
+                await this.loadData();
+                this.createFilters();
+                this.createTimeline();
+                this.hideLoading();
+            }
+
+            async loadData() {
+                try {
+                    // Try to load from remote URL first
+                    let response;
+                    let jsonData;
+                    
+                    try {
+                        response = await fetch('https://favoratti.com/career/data.json');
+                        jsonData = await response.json();
+                    } catch (corsError) {
+                        console.warn('⚠️ CORS error loading remote data, falling back to local data.json');
+                        // Fallback to local file
+                        response = await fetch('./data.json');
+                        jsonData = await response.json();
+                    }
+                    
+                    this.data = jsonData.data || jsonData;
+                    
+                    // Filter out Study and Work categories
+                    this.data = this.data.filter(category => 
+                        category.type !== 'Study' && category.type !== 'Work'
+                    );
+                    
+                    // Flatten all items with their categories
+                    this.allItems = [];
+                    this.data.forEach(category => {
+                        category.data.forEach(item => {
+                            // Handle multiple date ranges
+                            if (item.dates && item.dates.length > 0) {
+                                item.dates.forEach(dateRange => {
+                                    this.allItems.push({
+                                        ...item,
+                                        type: category.type,
+                                        startDate: dateRange.start,
+                                        endDate: dateRange.end,
+                                        dateRange: dateRange
+                                    });
+                                });
+                            }
+                        });
+                    });
+
+                    // Sort by start date (newest first)
+                    this.allItems.sort((a, b) => {
+                        const dateA = this.parseDate(a.startDate);
+                        const dateB = this.parseDate(b.startDate);
+                        return dateB.year - dateA.year || dateB.month - dateA.month;
+                    });
+
+                    // Initialize all filters as active
+                    this.data.forEach(category => {
+                        this.activeFilters.add(category.type);
+                    });
+
+                    console.log('📊 Loaded timeline data:', this.allItems);
+                } catch (error) {
+                    console.error('❌ Failed to load data:', error);
+                    this.showError();
+                }
+            }
+
+            parseDate(dateString) {
+                const monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                                   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const [monthStr, yearStr] = dateString.split('-');
+                return {
+                    month: monthsShort.indexOf(monthStr),
+                    year: parseInt(yearStr)
+                };
+            }
+
+            formatDate(dateString) {
+                if (!dateString) return 'Present';
+                const [month, year] = dateString.split('-');
+                return `${month} ${year}`;
+            }
+
+            createFilters() {
+                const filtersContainer = document.getElementById('filters');
+                const types = [...new Set(this.data.map(category => category.type))];
+
+                types.forEach(type => {
+                    const button = document.createElement('button');
+                    button.className = 'filter-btn active';
+                    button.textContent = type;
+                    button.dataset.type = type;
+                    
+                    button.addEventListener('click', () => {
+                        button.classList.toggle('active');
+                        
+                        if (button.classList.contains('active')) {
+                            this.activeFilters.add(type);
+                        } else {
+                            this.activeFilters.delete(type);
+                        }
+                        
+                        this.filterTimeline();
+                    });
+
+                    filtersContainer.appendChild(button);
+                });
+            }
+
+            createTimeline() {
+                const timelineContainer = document.getElementById('timeline');
+                
+                this.allItems.forEach((item, index) => {
+                    const timelineItem = document.createElement('div');
+                    timelineItem.className = 'timeline-item';
+                    timelineItem.dataset.type = item.type;
+                    
+                    const isOngoing = item.endDate === null;
+                    const startDate = this.formatDate(item.startDate);
+                    const endDate = this.formatDate(item.endDate);
+                    const dateRange = isOngoing ? `${startDate} - Present` : `${startDate} - ${endDate}`;
+                    
+                    const typeClass = item.type.toLowerCase().replace(/\s+/g, '-');
+                    
+                    const iconHtml = item.icon ? `<img src="${item.icon}" alt="${item.name}" class="timeline-icon" onerror="this.style.display='none'">` : '';
+                    
+                    const descriptionHtml = item.description ? `<div class="timeline-description">${item.description}</div>` : '';
+                    const linkHtml = item.link ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="timeline-link">${item.link}</a>` : '';
+                    const tagsHtml = item.tags && item.tags.length > 0 ? `
+                        <div class="timeline-tags">
+                            ${item.tags.map(tag => `<span class="timeline-tag">${tag}</span>`).join('')}
+                        </div>
+                    ` : '';
+                    const screenshots = item.screenshots || item.images || [];
+                    const screenshotsHtml = screenshots && screenshots.length > 0 ? `
+                        <div class="timeline-screenshots ${screenshots.length === 1 ? 'single-image' : screenshots.length === 2 ? 'two-images' : ''}">
+                            ${screenshots.map((screenshot, idx) => `
+                                <div class="timeline-screenshot" onclick="openScreenshotCarousel(${JSON.stringify(screenshots).replace(/"/g, '&quot;')}, ${idx}, '${item.name}')">
+                                    <img src="${screenshot}" alt="${item.name} Screenshot ${idx + 1}" loading="lazy">
+                                    <div class="timeline-screenshot-overlay">
+                                        <span>🔍 View Full Size</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : '';
+                    
+                    timelineItem.innerHTML = `
+                        <div class="timeline-content ${isOngoing ? 'ongoing' : ''}">
+                            <div class="timeline-header">
+                                <div class="timeline-info">
+                                    ${iconHtml}
+                                    <div class="timeline-text">
+                                        <div class="timeline-title">${item.name}</div>
+                                        ${item.company ? `<div class="timeline-company">${item.company}</div>` : ''}
+                                        ${item.description ? `<div class="timeline-description-header">${item.description}</div>` : ''}
+                                        ${linkHtml}
+                                    </div>
+                                </div>
+                                <div class="timeline-dates">${dateRange}</div>
+                            </div>
+                            ${screenshotsHtml}
+                            <div class="timeline-footer">
+                                ${tagsHtml}
+                                <div class="timeline-type type-${typeClass}">${item.type}</div>
+                            </div>
+                        </div>
+                    `;
+
+                    timelineContainer.appendChild(timelineItem);
+                });
+            }
+
+            filterTimeline() {
+                const items = document.querySelectorAll('.timeline-item');
+                
+                items.forEach(item => {
+                    const type = item.dataset.type;
+                    
+                    if (this.activeFilters.has(type)) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            }
+
+            hideLoading() {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('timeline').style.display = 'block';
+            }
+
+            showError() {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+
+        // Modal carousel state
+        let modalCarouselState = {
+            images: [],
+            currentSlide: 0,
+            totalSlides: 0
+        };
+
+        // Screenshot modal functionality
+        function openScreenshotCarousel(images, startIndex = 0, projectName = '') {
+            modalCarouselState.images = images;
+            modalCarouselState.currentSlide = startIndex;
+            modalCarouselState.totalSlides = images.length;
+
+            const modal = document.getElementById('screenshotModal');
+            const track = document.getElementById('modalCarouselTrack');
+            const indicators = document.getElementById('modalIndicators');
+            const prevBtn = document.getElementById('modalPrev');
+            const nextBtn = document.getElementById('modalNext');
+
+            // Generate carousel slides
+            track.innerHTML = images.map((img, idx) => `
+                <div class="modal-carousel-slide">
+                    <img src="${img}" alt="${projectName} Screenshot ${idx + 1}">
+                </div>
+            `).join('');
+
+            // Generate indicators
+            indicators.innerHTML = images.map((_, idx) => `
+                <div class="modal-carousel-indicator ${idx === startIndex ? 'active' : ''}" onclick="goToModalSlide(${idx})"></div>
+            `).join('');
+
+            // Show/hide navigation for single images
+            if (images.length > 1) {
+                prevBtn.style.display = 'flex';
+                nextBtn.style.display = 'flex';
+                indicators.style.display = 'flex';
+            } else {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                indicators.style.display = 'none';
+            }
+
+            // Set initial position
+            updateModalCarousel();
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateModalCarousel() {
+            const track = document.getElementById('modalCarouselTrack');
+            const indicators = document.querySelectorAll('.modal-carousel-indicator');
+            
+            track.style.transform = `translateX(-${modalCarouselState.currentSlide * 100}%)`;
+            
+            indicators.forEach((indicator, idx) => {
+                indicator.classList.toggle('active', idx === modalCarouselState.currentSlide);
+            });
+        }
+
+        function nextModalSlide() {
+            modalCarouselState.currentSlide = (modalCarouselState.currentSlide + 1) % modalCarouselState.totalSlides;
+            updateModalCarousel();
+        }
+
+        function prevModalSlide() {
+            modalCarouselState.currentSlide = modalCarouselState.currentSlide === 0 ? 
+                modalCarouselState.totalSlides - 1 : modalCarouselState.currentSlide - 1;
+            updateModalCarousel();
+        }
+
+        function goToModalSlide(slideIndex) {
+            modalCarouselState.currentSlide = slideIndex;
+            updateModalCarousel();
+        }
+
+        function closeScreenshotModal() {
+            const modal = document.getElementById('screenshotModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Initialize timeline when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new Timeline();
+            
+            // Modal event listeners
+            const modal = document.getElementById('screenshotModal');
+            const modalClose = document.getElementById('modalClose');
+            const modalPrev = document.getElementById('modalPrev');
+            const modalNext = document.getElementById('modalNext');
+            
+            modalClose.addEventListener('click', closeScreenshotModal);
+            modalPrev.addEventListener('click', prevModalSlide);
+            modalNext.addEventListener('click', nextModalSlide);
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeScreenshotModal();
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (modal.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        closeScreenshotModal();
+                    } else if (e.key === 'ArrowLeft') {
+                        prevModalSlide();
+                    } else if (e.key === 'ArrowRight') {
+                        nextModalSlide();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

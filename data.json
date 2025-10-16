@@ -6,304 +6,1307 @@
   "data": [
     {
       "type": "Study",
-    "data": [
-      {
-        "name": "Data Processing High School - Eniac School",
-        "dates": [{ "start": "Jan-1997", "end": "Dec-1999" }]
-      },
-      {
-        "name": "Bachelor in Computer Science - PUC-SP",
-        "dates": [{ "start": "Jan-2000", "end": "Dec-2003" }]
-      }
-    ]
-  },
-  {
-    "type": "Work",
-    "data": [
-      {
-        "name": "Laboratory Helper - Eniac School",
-        "company": "Eniac School",
-        "dates": [{ "start": "Mar-1999", "end": "Jun-1999" }]
-      },
-      {
-        "name": "HTML and Hardware Teacher - Onion School",
-        "company": "Onion School",
-        "dates": [{ "start": "Mar-2000", "end": "Jun-2000" }]
-      },
-      {
-        "name": "Java Junior Developer - SSI",
-        "company": "SSI",
-        "dates": [{ "start": "Jul-2000", "end": "Apr-2003" }]
-      },
-      {
-        "name": "Java Mid-Senior Developer - Ultracon",
-        "company": "Ultracon",
-        "dates": [{ "start": "May-2003", "end": "Dec-2005" }]
-      },
-      {
-        "name": "Java Senior Developer - SulAmerica",
-        "company": "SulAmerica",
-        "dates": [{ "start": "Jan-2006", "end": "Dec-2006" }]
-      },
-      {
-        "name": "Java Tech Lead - SIMPRO",
-        "company": "SIMPRO",
-        "dates": [{ "start": "Jan-2007", "end": "Aug-2008" }]
-      },
-      {
-        "name": "Java Tech Lead - NC4U",
-        "company": "NC4U",
-        "dates": [{ "start": "Sep-2008", "end": "Apr-2010" }]
-      },
-      {
-        "name": "Co-Founder and Android Tech Lead - Yotta Apps",
-        "company": "Yotta Apps",
-        "dates": [{ "start": "Sep-2010", "end": "Dec-2014" }]
-      },
-      {
-        "name": "Android Tech Lead - Tecsinapse",
-        "company": "Tecsinapse",
-        "dates": [{ "start": "Jan-2015", "end": "Nov-2016" }]
-      },
-      {
-        "name": "Android Senior Developer - ArcTouch",
-        "company": "ArcTouch",
-        "dates": [{ "start": "Dec-2016", "end": "Oct-2022" }]
-      },
-      {
-        "name": "Android Senior Developer - Shield AI",
-        "company": "Shield AI",
-        "dates": [{ "start": "May-2023", "end": "Oct-2023" }]
-      },
-      {
-        "name": "Android Senior Developer - Sam's Club",
-        "company": "Sam's Club",
-        "dates": [{ "start": "May-2024", "end": "Oct-2024" }]
-      },
-      {
-        "name": "Full Stack Gen AI Tech Lead - Pactto",
-        "company": "Pactto",
-        "dates": [
-            { "start": "Feb-2024", "end": "Apr-2024" }, 
-            { "start": "Nov-2024", "end": "Mar-2025" }]
-      },
-      {
-        "name": "Full Stack Gen AI Developer - Meta",
-        "company": "Meta",
-        "dates": [{ "start": "Aug-2025", "end": null }]
-      }
-    ]
-  },
-  {
-    "type": "Client Projects",
-    "data": [
-      {
-        "name": "Intranet Siemens",
-        "dates": [{ "start": "Jul-2000", "end": "Apr-2001" }]
-      },
-      {
-        "name": "Pirelli Sinistro Pneus",
-        "dates": [{ "start": "Jun-2001", "end": "Aug-2001" }]
-      },
-      {
-        "name": "Reimbursement Siemens",
-        "dates": [{ "start": "Sep-2001", "end": "Apr-2003" }]
-      },
-      {
-        "name": "EAN / GS1 Website",
-        "dates": [{ "start": "Mar-2003", "end": "Aug-2004" }]
-      },
-      {
-        "name": "Sistema Boliche",
-        "dates": [{ "start": "Sep-2004", "end": "Jan-2005" }]
-      },
-      {
-        "name": "Ultrasip Exército",
-        "dates": [{ "start": "Feb-2005", "end": "Jun-2005" }]
-      },
-      {
-        "name": "CPFL Energia",
-        "dates": [{ "start": "Jul-2005", "end": "Dec-2005" }]
-      },
-      {
-        "name": "Glosa SulAmerica",
-        "dates": [{ "start": "Jan-2006", "end": "Dec-2006" }]
-      },
-      {
-        "name": "GPS - Guia Paciente de Risco",
-        "dates": [{ "start": "Jan-2007", "end": "Jun-2008" }]
-      },
-      {
-        "name": "NC4U Narrowcasting",
-        "dates": [{ "start": "Aug-2008", "end": "Jan-2010" }]
-      },
-      {
-        "name": "Khor RSUIApp",
-        "dates": [{ "start": "Feb-2014", "end": "Apr-2014" }]
-      },
-      {
-        "name": "Diarios App",
-        "dates": [{ "start": "Apr-2014", "end": "Jun-2014" }]
-      },
-      {
-        "name": "CAM IP",
-        "dates": [{ "start": "Jul-2014", "end": "Aug-2014" }]
-      },
-      {
-        "name": "Nissan VideoWall",
-        "dates": [{ "start": "Jul-2014", "end": "Dec-2014" }]
-      },
-      {
-        "name": "My Flyers",
-        "dates": [{ "start": "Jan-2015", "end": "Jul-2015" }]
-      },
-      {
-        "name": "Harleyros",
-        "dates": [{ "start": "Jul-2015", "end": "Nov-2015" }]
-      },
-      {
-        "name": "Presume",
-        "dates": [{ "start": "Oct-2015", "end": "Jan-2016" }]
-      },
-      {
-        "name": "Uptake",
-        "dates": [{ "start": "Feb-2016", "end": "Oct-2016" }]
-      },
-      {
-        "name": "HP Sprocket",
-        "dates": [{ "start": "Feb-2017", "end": "Oct-2017" }]
-      },
-      {
-        "name": "3M Filtrete",
-        "dates": [{ "start": "Nov-2017", "end": "Mar-2018" }]
-      },
-      {
-        "name": "Walmart App",
-        "dates": [{ "start": "Apr-2018", "end": "Oct-2022" }]
-      },
-      {
-        "name": "Shield.ai",
-        "dates": [{ "start": "May-2023", "end": "Oct-2023" }]
-      },
-      {
-        "name": "Pactto Backend",
-        "dates": [{ "start": "Feb-2024", "end": "May-2024" }]
-      },
-      {
-        "name": "Sam's Club Glass",
-        "dates": [{ "start": "May-2024", "end": "Oct-2024" }]
-      },
-      {
-        "name": "Pactto Video GenAi Workflow",
-        "dates": [{ "start": "Nov-2024", "end": "Mar-2025" }]
-      }
-    ]
-  },  {
-    "type": "Side Projects",
-    "data": [
-      {
-        "name": "Twister Site",
-        "dates": [{ "start": "Aug-1997", "end": "Dec-1999" }]
-      },
-      {
-        "name": "Tic Tac Toe Tchau",
-        "dates": [{ "start": "Mar-1998", "end": "Sep-1998" }]
-      },
-      {
-        "name": "Eniac Chat",
-        "dates": [{ "start": "Jan-1999", "end": "Mar-1999" }]
-      },
-      {
-        "name": "Legião Fênix Website",
-        "dates": [{ "start": "Apr-1999", "end": "Jun-2002" }]
-      },
-      {
-        "name": "Legião Fênix Fórum",
-        "dates": [{ "start": "Jul-2000", "end": "Jun-2002" }]
-      },
-      {
-        "name": "CobraRadar",
-        "dates": [{ "start": "Sep-2001", "end": "Aug-2004" }]
-      },
-      {
-        "name": "TNTNP Blog",
-        "dates": [{ "start": "Dec-2004", "end": "Dec-2007" }]
-      },
-      {
-        "name": "Campo Minado Web",
-        "dates": [{ "start": "Mar-2009", "end": "Jun-2009" }]
-      },
-      {
-        "name": "Ops Fiscalize",
-        "dates": [{ "start": "Jan-2014", "end": null }]
-      }
-    ]
-  },
-  {
-    "type": "Own Projects",
-    "data": [
-      {
-        "name": "De Olho na Estrada",
-        "dates": [{ "start": "Sep-2010", "end": "Dec-2014" }]
-      },
-      {
-        "name": "iCaipirinha",
-        "dates": [{ "start": "Nov-2010", "end": "Dec-2014" }]
-      },
-      {
-        "name": "Guia de Charutarias",
-        "dates": [{ "start": "Feb-2011", "end": "Dec-2014" }]
-      },
-      {
-        "name": "De Olho nas Ondas",
-        "dates": [{ "start": "Aug-2011", "end": "Dec-2014" }]
-      },
-      {
-        "name": "Toda Lagoa",
-        "dates": [{ "start": "Feb-2012", "end": "Dec-2012" }]
-      },
-      {
-        "name": "e-Scola",
-        "dates": [{ "start": "Aug-2012", "end": "Dec-2014" }]
-      },
-      {
-        "name": "Risadaria",
-        "dates": [{ "start": "Feb-2013", "end": "Dec-2013" }]
-      },
-      {
-        "name": "Sin Combustible",
-        "dates": [{ "start": "Jun-2013", "end": "Dec-2014" }]
-      },
-      {
-        "name": "Delivery Box",
-        "dates": [{ "start": "Sep-2013", "end": "Dec-2014" }]
-      },
-      {
-        "name": "Robot Escape",
-        "dates": [{ "start": "Nov-2013", "end": "Dec-2014" }]
-      },
-      {
-        "name": "Gaita.com.br",
-        "dates": [{ "start": "May-2016", "end": "Jul-2022" }]
-      },
-      {
-        "name": "Whassist.ai",
-        "dates": [{ "start": "Jul-2023", "end": "Nov-2023" }]
-      }
-    ]
-  },
-  {
-    "type": "Freelancer",
-    "data": [
-      {
-        "name": "Paulo Ovidio Project",
-        "dates": [{ "start": "Aug-2001", "end": "Apr-2002" }]
-      },
-      {
-        "name": "Shopping Tucuruvi Arquitetura",
-        "dates": [{ "start": "May-2004", "end": "Sep-2004" }]
-      }
-    ]
-  }
-]
+      "data": [
+        {
+          "name": "Data Processing High School - Eniac School",
+          "dates": [
+            {
+              "start": "Jan-1997",
+              "end": "Dec-1999"
+            }
+          ],
+          "icon": "images/eniac-icon.png"
+        },
+        {
+          "name": "Bachelor in Computer Science - PUC-SP",
+          "dates": [
+            {
+              "start": "Jan-2000",
+              "end": "Dec-2003"
+            }
+          ],
+          "icon": "images/pucsp-icon.png"
+        }
+      ]
+    },
+    {
+      "type": "Work",
+      "data": [
+        {
+          "name": "Laboratory Helper - Eniac School",
+          "company": "Eniac School",
+          "dates": [
+            {
+              "start": "Mar-1999",
+              "end": "Jun-1999"
+            }
+          ],
+          "icon": "images/eniac-icon.png"
+        },
+        {
+          "name": "HTML and Hardware Teacher - Onion School",
+          "company": "Onion School",
+          "dates": [
+            {
+              "start": "Mar-2000",
+              "end": "Jun-2000"
+            }
+          ]
+        },
+        {
+          "name": "Java Junior Developer - SSI",
+          "company": "SSI",
+          "dates": [
+            {
+              "start": "Jul-2000",
+              "end": "Apr-2003"
+            }
+          ],
+          "icon": "images/ssi-icon.png"
+        },
+        {
+          "name": "Java Mid-Senior Developer - Ultracon",
+          "company": "Ultracon",
+          "dates": [
+            {
+              "start": "May-2003",
+              "end": "Dec-2005"
+            }
+          ],
+          "icon": "images/ultracon-icon.png"
+        },
+        {
+          "name": "Java Senior Developer - SulAmerica",
+          "company": "SulAmerica",
+          "dates": [
+            {
+              "start": "Jan-2006",
+              "end": "Dec-2006"
+            }
+          ],
+          "icon": "images/sulamerica-icon.png"
+        },
+        {
+          "name": "Java Tech Lead - SIMPRO",
+          "company": "SIMPRO",
+          "dates": [
+            {
+              "start": "Jan-2007",
+              "end": "Aug-2008"
+            }
+          ],
+          "icon": "images/simpro-icon.png"
+        },
+        {
+          "name": "Java Tech Lead - NC4U",
+          "company": "NC4U",
+          "dates": [
+            {
+              "start": "Sep-2008",
+              "end": "Apr-2010"
+            }
+          ],
+          "icon": "images/nc4u-icon.png"
+        },
+        {
+          "name": "Co-Founder and Android Tech Lead - Yotta Apps",
+          "company": "Yotta Apps",
+          "dates": [
+            {
+              "start": "Sep-2010",
+              "end": "Dec-2014"
+            }
+          ],
+          "icon": "images/yotta-icon.png"
+        },
+        {
+          "name": "Android Tech Lead - Tecsinapse",
+          "company": "Tecsinapse",
+          "dates": [
+            {
+              "start": "Jan-2015",
+              "end": "Nov-2016"
+            }
+          ],
+          "icon": "images/tecsinapse-icon.png"
+        },
+        {
+          "name": "Android Senior Developer - ArcTouch",
+          "company": "ArcTouch",
+          "dates": [
+            {
+              "start": "Dec-2016",
+              "end": "Oct-2022"
+            }
+          ],
+          "icon": "images/arctouch-icon.png"
+        },
+        {
+          "name": "Android Senior Developer - Shield AI",
+          "company": "Shield AI",
+          "dates": [
+            {
+              "start": "May-2023",
+              "end": "Oct-2023"
+            }
+          ],
+          "icon": "images/shield-ai-icon.png",
+          "description": "Developed and implemented a comprehensive framework utilizing the Google Maps API, specifically tailored for generating navigation routes for AI-controlled drones.",
+          "tags": [
+            "Android",
+            "Google Maps API",
+            "Drone Navigation",
+            "AI Integration",
+            "Unit Testing",
+            "Framework Development",
+            "Navigation Routes",
+            "Team Leadership"
+          ]
+        },
+        {
+          "name": "Android Senior Developer - Sam's Club",
+          "company": "Sam's Club",
+          "dates": [
+            {
+              "start": "May-2024",
+              "end": "Oct-2024"
+            }
+          ],
+          "icon": "images/samsclub-icon.png",
+          "description": "Sam's Club shopping app.",
+          "tags": [
+            "Android",
+            "Kotlin",
+            "Unit Testing",
+            "UI Testing",
+            "Walmart Integration"
+          ]
+        },
+        {
+          "name": "Senior Mobile / Fullstack Engineer - Pactto",
+          "company": "Pactto",
+          "dates": [
+            {
+              "start": "Feb-2024",
+              "end": "Apr-2024"
+            },
+            {
+              "start": "Nov-2024",
+              "end": "2025"
+            }
+          ],
+          "icon": "images/pactto-icon.png",
+          "description": "Architected and delivered an AI-powered video upload pipeline, achieving a 455% increase in processing speed and significantly enhancing both asset quality and user experience. Led backend API development using Kotlin, Spring, and Hibernate, optimizing system performance and reliability. Designed and implemented microservices with Ktor, enabling real-time WebSocket communication for high-availability features. Drove cross-functional collaboration and mentored engineers on GenAI best practices, contributing to the successful rollout of next-generation product features. Ensured project delivery on schedule while maintaining high standards of code quality, scalability, and security.",
+          "tags": [
+            "Kotlin",
+            "Spring",
+            "Hibernate",
+            "Ktor",
+            "WebSocket",
+            "Microservices",
+            "GenAI",
+            "Video Processing",
+            "AI Pipeline"
+          ]
+        },
+        {
+          "name": "Full Stack Gen AI Developer - Meta",
+          "company": "Meta",
+          "dates": [
+            {
+              "start": "Aug-2025",
+              "end": null
+            }
+          ],
+          "icon": "images/meta-icon.png"
+        }
+      ]
+    },
+    {
+      "type": "Client Project",
+      "data": [
+        {
+          "name": "Intranet Siemens",
+          "dates": [
+            {
+              "start": "Jul-2000",
+              "end": "Apr-2001"
+            }
+          ],
+          "icon": "images/siemens-icon.png",
+          "description": "Intranet for Siemens employees.",
+          "tags": [
+            "HTML",
+            "ASP 3",
+            "Javascript"
+          ]
+        },
+        {
+          "name": "Pirelli Sinistro Pneus",
+          "dates": [
+            {
+              "start": "Jun-2001",
+              "end": "Aug-2001"
+            }
+          ],
+          "icon": "images/pirelli.png",
+          "description": "Website for insurance claims.",
+          "tags": [
+            "HTML",
+            "ASP 3",
+            "Javascript",
+            "SQL Server"
+          ]
+        },
+        {
+          "name": "Reimbursement Siemens",
+          "dates": [
+            {
+              "start": "Sep-2001",
+              "end": "Apr-2003"
+            }
+          ],
+          "icon": "images/siemens-icon.png",
+          "description": "Reimbursement system for Siemens employees.",
+          "tags": [
+            "HTML",
+            "ASP 3",
+            "Javascript",
+            "Oracle",
+            "Source Safe"
+          ]
+        },
+        {
+          "name": "EAN / GS1 Website",
+          "dates": [
+            {
+              "start": "Mar-2003",
+              "end": "Aug-2004"
+            }
+          ],
+          "icon": "images/gs1-icon.png",
+          "description": "Website for EAN / GS1.",
+          "tags": [
+            "HTML",
+            "Java",
+            "Javascript",
+            "JSP",
+            "Oracle"
+          ]
+        },
+        {
+          "name": "Shopping Tucuruvi Arquitetura",
+          "dates": [
+            {
+              "start": "May-2004",
+              "end": "Sep-2004"
+            }
+          ],
+          "icon": "images/tucuruvi-icon.png",
+          "description": "Website for decision making on the Tucuruvi shopping center rent.",
+          "tags": [
+            "HTML",
+            "Java",
+            "Javascript",
+            "JSP",
+            "MySQL"
+          ]
+        },
+        {
+          "name": "Sistema Boliche",
+          "dates": [
+            {
+              "start": "Sep-2004",
+              "end": "Jan-2005"
+            }
+          ],
+          "icon": "images/boliche-icon.png",
+          "description": "Internal System for the bowling alley with bar and restaurant.",
+          "tags": [
+            "HTML",
+            "Java",
+            "Javascript",
+            "JSP",
+            "MySQL"
+          ]
+        },
+        {
+          "name": "Ultrasip Exército",
+          "dates": [
+            {
+              "start": "Feb-2005",
+              "end": "Jun-2005"
+            }
+          ],
+          "icon": "images/ultrasip-icon.png",
+          "description": "Brazillian army retirement system.",
+          "tags": [
+            "HTML",
+            "Java",
+            "Javascript",
+            "JSP",
+            "Oracle",
+            "Biometric"
+          ]
+        },
+        {
+          "name": "CPFL Energia",
+          "dates": [
+            {
+              "start": "Jul-2005",
+              "end": "Dec-2005"
+            }
+          ],
+          "icon": "images/cpfl-icon.png",
+          "description": "Internal System for CPFL Energia.",
+          "tags": [
+            "HTML",
+            "ASP 3",
+            "Javascript",
+            "SQL Server"
+          ]
+        },
+        {
+          "name": "Glosa SulAmerica",
+          "dates": [
+            {
+              "start": "Jan-2006",
+              "end": "Dec-2006"
+            }
+          ],
+          "icon": "images/sulamerica-icon.png",
+          "description": "Internal System for SulAmerica glosa.",
+          "tags": [
+            "HTML",
+            "Java",
+            "Javascript",
+            "Oracle",
+            "JSP",
+            "PL/SQL"
+          ]
+        },
+        {
+          "name": "GPS - Guia Paciente de Risco",
+          "dates": [
+            {
+              "start": "Jan-2007",
+              "end": "Jun-2008"
+            }
+          ],
+          "icon": "images/gps-icon.png",
+          "description": "Risk patient system with emergency alert.",
+          "tags": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Java",
+            "Struts",
+            "Hibernate",
+            "MySQL"
+          ]
+        },
+        {
+          "name": "NC4U Narrowcasting",
+          "dates": [
+            {
+              "start": "Aug-2008",
+              "end": "Jan-2010"
+            }
+          ],
+          "icon": "images/nc4u-icon.png",
+          "description": "Narrowcasting system for NC4U for 1000+ screens over the country.",
+          "tags": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Java",
+            "Struts",
+            "Hibernate"
+          ]
+        },
+        {
+          "name": "Khor RSUIApp for Android",
+          "dates": [
+            {
+              "start": "Feb-2014",
+              "end": "Apr-2014"
+            }
+          ],
+          "icon": "images/rsui-app-icon.png",
+          "description": "RSUI App for Android.",
+          "tags": [
+            "Android",
+            "Java",
+            "Bluetooth"
+          ]
+        },
+        {
+          "name": "Diarios App",
+          "dates": [
+            {
+              "start": "Apr-2014",
+              "end": "Jun-2014"
+            }
+          ],
+          "icon": "images/diarios-app-icon.png",
+          "description": "Diarios App with newspapers and magazines from Brazil.",
+          "tags": [
+            "Android",
+            "Java",
+            "XML"
+          ]
+        },
+        {
+          "name": "CAM IP Iterviewer",
+          "dates": [
+            {
+              "start": "Jul-2014",
+              "end": "Aug-2014"
+            }
+          ],
+          "icon": "images/camera-app-icon.png",
+          "description": "Camera App for HR department remote interview.",
+          "tags": [
+            "Android",
+            "Java",
+            "XML",
+            "Android NDK"
+          ]
+        },
+        {
+          "name": "Nissan VideoWall",
+          "dates": [
+            {
+              "start": "Jul-2014",
+              "end": "Dec-2014"
+            }
+          ],
+          "icon": "images/nissan-icon.png",
+          "description": "Nissan VideoWall System.",
+          "tags": [
+            "ActionScript",
+            "Java",
+            "JSF",
+            "MySQL"
+          ]
+        },
+        {
+          "name": "My Flyers",
+          "dates": [
+            {
+              "start": "Jan-2015",
+              "end": "Jul-2015"
+            }
+          ],
+          "icon": "images/my-flyers-icon.png",
+          "description": "My Flyers App with flyers and promotions from Brazil.",
+          "tags": [
+            "Android",
+            "Java",
+            "PHP",
+            "MySQL"
+          ]
+        },
+        {
+          "name": "Harleyros",
+          "dates": [
+            {
+              "start": "Jul-2015",
+              "end": "Nov-2015"
+            }
+          ],
+          "icon": "images/harley-icon.png",
+          "description": "Harleyros App with motorcycles from Brazil.",
+          "tags": [
+            "Android",
+            "Java",
+            "PHP",
+            "MySQL"
+          ]
+        },
+        {
+          "name": "Presume",
+          "dates": [
+            {
+              "start": "Oct-2015",
+              "end": "Jan-2016"
+            }
+          ],
+          "icon": "images/presume-icon.png",
+          "description": "Presume app.",
+          "tags": [
+            "Android",
+            "Java",
+            "Backend"
+          ],
+          "images": [
+            "images/screenshots/presume-1.png",
+            "images/screenshots/presume-2.png",
+            "images/screenshots/presume-3.png"
+          ]
+        },
+        {
+          "name": "Uptake",
+          "dates": [
+            {
+              "start": "Feb-2016",
+              "end": "Oct-2016"
+            }
+          ],
+          "icon": "images/uptake-icon.png",
+          "description": "Uptake App with questionaries for store consistency.",
+          "tags": [
+            "Android",
+            "Java",
+            "PHP",
+            "MySQL"
+          ]
+        },
+        {
+          "name": "HP Sprocket",
+          "dates": [
+            {
+              "start": "Feb-2017",
+              "end": "Oct-2017"
+            }
+          ],
+          "icon": "images/sprocket-icon.png",
+          "description": "HP Sprocket app.",
+          "tags": [
+            "Android",
+            "Kotlin",
+            "Custom View",
+            "Unit Testing"
+          ],
+          "images": [
+            "images/screenshots/sprocket-1.png",
+            "images/screenshots/sprocket-2.png",
+            "images/screenshots/sprocket-3.png"
+          ]
+        },
+        {
+          "name": "3M Filtrete",
+          "dates": [
+            {
+              "start": "Nov-2017",
+              "end": "Mar-2018"
+            }
+          ],
+          "icon": "images/3m.png",
+          "description": "3M Filtrete app.",
+          "tags": [
+            "Android",
+            "Kotlin",
+            "Custom View",
+            "Unit Testing"
+          ],
+          "images": [
+            "images/screenshots/filtrete-1.png",
+            "images/screenshots/filtrete-2.png",
+            "images/screenshots/filtrete-3.png"
+          ]
+        },
+        {
+          "name": "Walmart App",
+          "dates": [
+            {
+              "start": "Apr-2018",
+              "end": "Oct-2022"
+            }
+          ],
+          "icon": "images/walmart-app-icon.png",
+          "description": "Walmart shopping app.",
+          "tags": [
+            "Android",
+            "Kotlin",
+            "Unit Testing",
+            "UI Testing",
+            "React Native"
+          ],
+          "images": [
+            "images/screenshots/walmart-1.png",
+            "images/screenshots/walmart-2.png",
+            "images/screenshots/walmart-3.png"
+          ]
+        },
+        {
+          "name": "Shield.ai",
+          "dates": [
+            {
+              "start": "May-2023",
+              "end": "Oct-2023"
+            }
+          ],
+          "icon": "images/shield-ai-icon.png",
+          "description": "AI-controlled drone navigation framework using Google Maps API with comprehensive unit testing achieving 80% coverage.",
+          "tags": [
+            "Android",
+            "Google Maps API",
+            "Unit Testing",
+            "Framework Development",
+            "Coroutines",
+            "Flows"
+          ]
+        },
+        {
+          "name": "Sam's Club Glass",
+          "dates": [
+            {
+              "start": "May-2024",
+              "end": "Oct-2024"
+            }
+          ],
+          "icon": "images/samsclub-icon.png",
+          "description": "Android integration project connecting Sam's Club with Walmart platforms.",
+          "tags": [
+            "Android",
+            "Kotlin",
+            "Integration",
+            "Cross-platform",
+            "Performance Optimization",
+            "Mobile Development"
+          ],
+          "images": [
+            "images/screenshots/sams-club-1.png",
+            "images/screenshots/sams-club-2.png",
+            "images/screenshots/sams-club-3.png"
+          ]
+        },
+        {
+          "name": "Pactto Video GenAI Workflow",
+          "dates": [
+            {
+              "start": "Nov-2024",
+              "end": "Mar-2025"
+            }
+          ],
+          "icon": "images/pactto-icon.png",
+          "description": "AI-powered video upload pipeline featuring microservices with Ktor and real-time WebSocket communication.",
+          "tags": [
+            "GenAI",
+            "Video Processing",
+            "Ktor",
+            "WebSocket",
+            "Microservices",
+            "AI Pipeline",
+            "Performance Optimization"
+          ],
+          "images": [
+            "images/screenshots/pactto-transcribe-1.png",
+            "images/screenshots/pactto-transcribe-2.png",
+            "images/screenshots/pactto-transcribe-3.png"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Side Project",
+      "data": [
+        {
+          "name": "Twister Site",
+          "dates": [
+            {
+              "start": "Aug-1997",
+              "end": "Dec-1999"
+            }
+          ],
+          "icon": "images/twister-icon.png",
+          "description": "Twister Site for my School team challenge week.",
+          "tags": [
+            "HTML"
+          ]
+        },
+        {
+          "name": "Tic Tac Toe Tchau",
+          "dates": [
+            {
+              "start": "Mar-1998",
+              "end": "Sep-1998"
+            }
+          ],
+          "icon": "images/tic-tac-toe-icon.png",
+          "description": "Tic Tac Toe Game with a Trojan for pranking my friends.",
+          "tags": [
+            "Visual Basic 4",
+            "Sockets"
+          ]
+        },
+        {
+          "name": "Eniac Chat",
+          "dates": [
+            {
+              "start": "Jan-1999",
+              "end": "Mar-1999"
+            }
+          ],
+          "icon": "images/eniac-icon.png",
+          "description": "Eniac Chat with my friends.",
+          "tags": [
+            "Visual Basic 4",
+            "Sockets"
+          ]
+        },
+        {
+          "name": "Legião Fênix Website",
+          "dates": [
+            {
+              "start": "Apr-1999",
+              "end": "Jun-2002"
+            }
+          ],
+          "icon": "images/legiao-fenix-icon.png",
+          "description": "Legião Fênix Quake II clan website.",
+          "tags": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+          ],
+          "images": [
+            "images/screenshots/legiao-fenix-1.png",
+            "images/screenshots/legiao-fenix-2.png",
+            "images/screenshots/legiao-fenix-3.png"
+          ]
+        },
+        {
+          "name": "Legião Fênix Fórum",
+          "dates": [
+            {
+              "start": "Jul-2000",
+              "end": "Jun-2002"
+            }
+          ],
+          "icon": "images/legiao-fenix-forum-icon.png",
+          "description": "Legião Fênix Quake II clan forum.",
+          "tags": [
+            "HTML",
+            "CSS",
+            "ASP 3",
+            "Microsoft Access"
+          ],
+          "images": [
+            "images/screenshots/legiao-forum-1.png",
+            "images/screenshots/legiao-forum-2.png",
+            "images/screenshots/legiao-forum-3.png"
+          ]
+        },
+        {
+          "name": "CobraRadar",
+          "dates": [
+            {
+              "start": "Sep-2001",
+              "end": "Aug-2004"
+            }
+          ],
+          "icon": "images/cobraradar-icon.png",
+          "description": "CobraRadar App with radar for tracking cars.",
+          "tags": [
+            "Visual Basic 6",
+            "Java",
+            "Microsoft Access"
+          ]
+        },
+        {
+          "name": "TNTNP Blog",
+          "dates": [
+            {
+              "start": "Dec-2004",
+              "end": "Dec-2007"
+            }
+          ],
+          "icon": "images/tntnp-icon.png",
+          "description": "Blog from a group of friends for partying.",
+          "tags": [
+            "HTML",
+            "CSS",
+            "Blogspot"
+          ],
+          "images": [
+            "images/screenshots/tntnp-1.png",
+            "images/screenshots/tntnp-2.png",
+            "images/screenshots/tntnp-3.png"
+          ]
+        },
+        {
+          "name": "Campo Minado Web",
+          "dates": [
+            {
+              "start": "Mar-2009",
+              "end": "Jun-2009"
+            }
+          ],
+          "icon": "images/campo-minado-icon.png",
+          "description": "Campo Minado Game for Web.",
+          "tags": [
+            "HTML",
+            "Flash 4"
+          ]
+        },
+        {
+          "name": "Ops Fiscalize",
+          "dates": [
+            {
+              "start": "Jan-2014",
+              "end": "Dec-2016"
+            }
+          ],
+          "icon": "images/ops-fiscalize-icon.png",
+          "description": "Fiscalize the deputies reimbursements from the Brazilian Congress.",
+          "tags": [
+            "Java",
+            "Backend",
+            "Android"
+          ],
+          "images": [
+            "images/screenshots/ops-fiscalize-1.png",
+            "images/screenshots/ops-fiscalize-2.png",
+            "images/screenshots/ops-fiscalize-3.png"
+          ]
+        },
+        {
+          "name": "Timeless Knowledge",
+          "dates": [
+            {
+              "start": "Aug-2025",
+              "end": "Sep-2025"
+            }
+          ],
+          "icon": "images/timeless-knowledge-icon.png",
+          "link": "https://www.youtube.com/@TimelessKnowledge",
+          "description": "YouTube channel featuring classic literature and historical texts transformed into engaging audiobook experiences.",
+          "tags": [
+            "YouTube",
+            "AI Audio Generation",
+            "Open AI TTS",
+            "GPT-Image-1",
+            "ElevenLabs",
+            "Deepgram"
+          ],
+          "images": [
+            "images/screenshots/timeless-knowledge-1.png",
+            "images/screenshots/timeless-knowledge-2.png",
+            "images/screenshots/timeless-knowledge-3.png"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Own Project",
+      "data": [
+        {
+          "name": "De Olho na Estrada",
+          "dates": [
+            {
+              "start": "Sep-2010",
+              "end": "Dec-2014"
+            }
+          ],
+          "icon": "images/olho-nas-estrada-icon.png",
+          "description": "De Olho na Estrada App with pictures of the roads in Brazil.",
+          "tags": [
+            "Android",
+            "Java",
+            "XML",
+            "Crontab",
+            "FFmpeg"
+          ],
+          "images": [
+            "images/screenshots/olho-na-estrada-1.png",
+            "images/screenshots/olho-na-estrada-2.png",
+            "images/screenshots/olho-na-estrada-3.png"
+          ]
+        },
+        {
+          "name": "iCaipirinha",
+          "dates": [
+            {
+              "start": "Nov-2010",
+              "end": "Dec-2014"
+            }
+          ],
+          "icon": "images/icaipirinha-icon.png",
+          "description": "Learn how to make the best caipirinha in the world.",
+          "tags": [
+            "Android",
+            "Java",
+            "XML"
+          ],
+          "images": [
+            "images/screenshots/icaipirinha-1.png",
+            "images/screenshots/icaipirinha-2.png",
+            "images/screenshots/icaipirinha-3.png"
+          ]
+        },
+        {
+          "name": "Guia de Charutarias",
+          "dates": [
+            {
+              "start": "Feb-2011",
+              "end": "Dec-2014"
+            }
+          ],
+          "icon": "images/charutarias-icon.png",
+          "description": "Guia de Charutarias App with the best cigar places in Brazil.",
+          "tags": [
+            "Android",
+            "Java",
+            "XML",
+            "MySQL"
+          ],
+          "images": [
+            "images/screenshots/guia-de-charutarias-1.png"
+          ]
+        },
+        {
+          "name": "De Olho nas Ondas",
+          "dates": [
+            {
+              "start": "Aug-2011",
+              "end": "Dec-2014"
+            }
+          ],
+          "icon": "images/olho-nas-ondas-icon.png",
+          "description": "De Olho nas Ondas App with pictures of the waves in Brazil.",
+          "tags": [
+            "Android",
+            "Java",
+            "XML",
+            "Crontab",
+            "FFmpeg"
+          ],
+          "images": [
+            "images/screenshots/olho-nas-ondas-1.png",
+            "images/screenshots/olho-nas-ondas-2.png",
+            "images/screenshots/olho-nas-ondas-3.png"
+          ]
+        },
+        {
+          "name": "Toda Lagoa",
+          "dates": [
+            {
+              "start": "Feb-2012",
+              "end": "Dec-2012"
+            }
+          ],
+          "icon": "images/toda-lagoa-icon.png",
+          "description": "Toda Lagoa App with pictures of the business in Lagoa da Conceição in Florianópolis, Brazil.",
+          "tags": [
+            "HTML",
+            "Java",
+            "JSP",
+            "MySQL"
+          ]
+        },
+        {
+          "name": "e-Scola App",
+          "dates": [
+            {
+              "start": "Aug-2012",
+              "end": "Dec-2014"
+            }
+          ],
+          "icon": "images/escola-icon.png",
+          "description": "e-Scola App for teacher and students material for classroom.",
+          "tags": [
+            "Android",
+            "Java",
+            "Python",
+            "MySQL"
+          ]
+        },
+        {
+          "name": "Risadaria",
+          "dates": [
+            {
+              "start": "Feb-2013",
+              "end": "Dec-2013"
+            }
+          ],
+          "icon": "images/risadaria-icon.png",
+          "description": "Risadaria App for the São Paulo event information.",
+          "tags": [
+            "Android",
+            "Java",
+            "XML"
+          ]
+        },
+        {
+          "name": "Sin Combustible",
+          "dates": [
+            {
+              "start": "Jun-2013",
+              "end": "Dec-2014"
+            }
+          ],
+          "icon": "images/sin-combustible-icon.png",
+          "description": "Look for places to refill your car with fuel in Uruguay.",
+          "tags": [
+            "Android",
+            "Java",
+            "Google Maps API",
+            "Backend"
+          ],
+          "images": [
+            "images/screenshots/sin-combustible-1.png",
+            "images/screenshots/sin-combustible-2.png",
+            "images/screenshots/sin-combustible-3.png"
+          ]
+        },
+        {
+          "name": "Delivery Box Game",
+          "dates": [
+            {
+              "start": "Sep-2013",
+              "end": "Dec-2014"
+            }
+          ],
+          "icon": "images/delivery-box-icon.png",
+          "description": "Delivery Box game.",
+          "tags": [
+            "Android",
+            "iOS",
+            "Unity 3D"
+          ],
+          "images": [
+            "images/screenshots/delivery-box-1.png",
+            "images/screenshots/delivery-box-2.png"
+          ]
+        },
+        {
+          "name": "Robot Escape Game",
+          "dates": [
+            {
+              "start": "Nov-2013",
+              "end": "Dec-2014"
+            }
+          ],
+          "icon": "images/robot-escape-icon.png",
+          "description": "Robot Escape game.",
+          "tags": [
+            "Android",
+            "iOS",
+            "Unity 3D"
+          ],
+          "images": [
+            "images/screenshots/robot-escape-1.png",
+            "images/screenshots/robot-escape-2.png"
+          ]
+        },
+        {
+          "name": "Gaita.com.br",
+          "dates": [
+            {
+              "start": "May-2016",
+              "end": "Jul-2022"
+            }
+          ],
+          "icon": "images/gaita-icon.png",
+          "description": "Gaita.com.br online course for learning how to play the harmonica.",
+          "tags": [
+            "Youtube",
+            "Instagram",
+            "Hotmart",
+            "Google Ads",
+            "Google Analytics",
+            "Facebook Ads"
+          ]
+        },
+        {
+          "name": "Gaiteando",
+          "dates": [
+            {
+              "start": "Sep-2016",
+              "end": "Abr-2018"
+            }
+          ],
+          "tags": [
+            "MeteorJS",
+            "MongoDB",
+            "Express",
+            "React",
+            "Node.js"
+          ],
+          "icon": "images/gaiteando-icon.png",
+          "description": "Learning Harmonica app.",
+          "images": [
+            "images/screenshots/gaiteando-1.png",
+            "images/screenshots/gaiteando-2.png",
+            "images/screenshots/gaiteando-3.png"
+          ]
+        },
+        {
+          "name": "Compose ArcLayout Demo",
+          "dates": [
+            {
+              "start": "Aug-2023",
+              "end": "Sep-2023"
+            }
+          ],
+          "icon": "images/compose-demo-icon.png",
+          "description": "Android Jetpack Compose demo showcasing custom arc layout implementation with smooth animations and interactive UI components.",
+          "tags": [
+            "Android",
+            "Jetpack Compose",
+            "Kotlin",
+            "Custom Layouts",
+            "UI/UX",
+            "Animation"
+          ],
+          "images": [
+            "images/screenshots/compose-arclayout-1.png",
+            "images/screenshots/compose-arclayout-2.png",
+            "images/screenshots/compose-arclayout-3.png"
+          ]
+        },
+        {
+          "name": "Whassist.ai - Barber Shop App",
+          "dates": [
+            {
+              "start": "Jul-2023",
+              "end": "Nov-2023"
+            }
+          ],
+          "icon": "images/whassist-icon.png",
+          "description": "Barber Shop App with appointment scheduling and customer management through WhatsApp.",
+          "tags": [
+            "WhatsApp",
+            "Node JS",
+            "Express",
+            "MongoDB",
+            "Evolution API"
+          ],
+          "images": [
+            "images/screenshots/whassist-1.png",
+            "images/screenshots/whassist-2.png",
+            "images/screenshots/whassist-3.png"
+          ]
+        },
+        {
+          "name": "Harmonica Shortcut",
+          "dates": [
+            {
+              "start": "Oct-2023",
+              "end": "Feb-2024"
+            }
+          ],
+          "icon": "images/harmonica-shortcut-icon.png",
+          "description": "Musical learning application for harmonica players with interactive shortcuts and tutorials.",
+          "tags": [
+            "Music Education",
+            "Interactive Learning",
+            "Audio Processing",
+            "Web Application"
+          ],
+          "images": [
+            "images/screenshots/harmonica-shortcut-1.png",
+            "images/screenshots/harmonica-shortcut-2.png",
+            "images/screenshots/harmonica-shortcut-3.png"
+          ]
+        },
+        {
+          "name": "Qual Canal",
+          "dates": [
+            {
+              "start": "Dec-2023",
+              "end": "Feb-2024"
+            }
+          ],
+          "icon": "images/qual-canal-icon.png",
+          "link": "https://www.qualcanal.com.br",
+          "description": "Search/Scraps where Soccer Games will be Streamed",
+          "tags": [
+            "Serper API",
+            "Python",
+            "Uvicorn",
+            "Javascript",
+            "HTML",
+            "CSS",
+            "OpenAI",
+            "GPT 4o",
+            "CronTab"
+          ],
+          "images": [
+            "images/screenshots/qual-canal-1.png",
+            "images/screenshots/qual-canal-2.png",
+            "images/screenshots/qual-canal-3.png"
+          ]
+        },
+        {
+          "name": "Aurora",
+          "dates": [
+            {
+              "start": "Nov-2024",
+              "end": "Dec-2024"
+            }
+          ],
+          "icon": "images/aurora-icon.png",
+          "link": "https://aurora.favoratti.com",
+          "description": "RPG Game created on the Fly with image consistence",
+          "tags": [
+            "Python",
+            "Javascript",
+            "HTML",
+            "CSS",
+            "OpenAI",
+            "Multi Agents",
+            "GPT-Image-1"
+          ],
+          "images": [
+            "images/screenshots/aurora-1.png",
+            "images/screenshots/aurora-2.png",
+            "images/screenshots/aurora-3.png"
+          ]
+        },
+        {
+          "name": "Cupidoodle",
+          "dates": [
+            {
+              "start": "Mar-2025",
+              "end": "Jul-2025"
+            }
+          ],
+          "icon": "images/cupidoodle-icon.png",
+          "link": "https://www.cupidoodle.com",
+          "description": "Digital Storybooks Creation with AI Assistance.",
+          "tags": [
+            "Python",
+            "Javascript",
+            "HTML",
+            "CSS",
+            "OpenAI",
+            "GPT 4.1",
+            "GPT-Image-1"
+          ],
+          "images": [
+            "images/screenshots/cupidoodle-1.png",
+            "images/screenshots/cupidoodle-2.png",
+            "images/screenshots/cupidoodle-3.png"
+          ]
+        },
+        {
+          "name": "Local Legends",
+          "dates": [
+            {
+              "start": "Jul-2025",
+              "end": "Aug-2025"
+            }
+          ],
+          "icon": "images/local-legends-icon.png",
+          "link": "https://legends.favoratti.com",
+          "description": "Platform to find the best activities in San Diego.",
+          "tags": [
+            "HTML 5",
+            "Python",
+            "CSS",
+            "Open AI",
+            "Websocket"
+          ],
+          "images": [
+            "images/screenshots/local-legends-1.png",
+            "images/screenshots/local-legends-2.png",
+            "images/screenshots/local-legends-3.png"
+          ]
+        }
+      ]
+    }
+  ]
 }
