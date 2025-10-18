@@ -273,49 +273,20 @@ class ContributionGraph {
     }
     
     calculateSquareSize() {
-        // Get actual measured heights of all components
-        const graphContainer = document.querySelector('.graph-container');
-        const legend = document.querySelector('.legend');
-        const contributionGrid = document.querySelector('.contribution-grid');
+        // Use a fixed, larger square size for consistency
+        const isMobile = window.innerWidth <= 768;
         
-        if (!graphContainer || !legend || !contributionGrid) {
-            // Fallback values if elements don't exist yet
-            this.squareSize = 15;
-            return;
+        // Set consistent square sizes
+        if (isMobile) {
+            this.squareSize = 16; // Good size for mobile
+        } else {
+            this.squareSize = 32; // Larger, consistent size for desktop
         }
-        
-        // Get the actual height available for the contribution grid
-        const graphContainerHeight = graphContainer.clientHeight;
-        const graphContainerPadding = 40; // 20px top + 20px bottom padding
-        
-        // Calculate available height for the graph scroll area (legend is outside graph container)
-        const availableForGraphScroll = graphContainerHeight - graphContainerPadding;
-        
-        // Get actual year labels height if they exist
-        const yearLabels = document.querySelector('.year-labels');
-        const yearLabelsHeight = yearLabels ? yearLabels.offsetHeight + 10 : 40; // +10 for margin-bottom
-        
-        // Available height for just the contribution grid
-        const availableHeightForGrid = availableForGraphScroll - yearLabelsHeight;
-        
-        // Calculate square size (12 months + 11 gaps of 3px each)
-        const monthGaps = 11;
-        const gapSize = 3;
-        const totalGapHeight = monthGaps * gapSize;
-        
-        // Calculate square size
-        this.squareSize = Math.floor((availableHeightForGrid - totalGapHeight) / 12);
-        
-        // Apply constraints
-        this.squareSize = Math.max(8, this.squareSize);
-        this.squareSize = Math.min(35, this.squareSize);
         
         // Check if horizontal scroll is needed
         this.checkHorizontalScrollNeed();
         
-        console.log(`📐 Recalculated square size: ${this.squareSize}px`);
-        console.log(`📏 Available height for grid: ${availableHeightForGrid}px`);
-        console.log(`🔄 Needs horizontal scroll: ${this.needsHorizontalScroll}`);
+        console.log(`📐 Fixed square size: ${this.squareSize}px`);
     }
     
     updateSquareSizes() {
@@ -329,14 +300,29 @@ class ContributionGraph {
         const yearLabels = document.querySelectorAll('.year-label');
         yearLabels.forEach(label => {
             label.style.width = `${this.squareSize}px`;
-            label.style.marginRight = '3px';
+            label.style.marginRight = '2px';
         });
         
-        // Update month label height to match squares
+        // Update month label height to match squares with consistent spacing
         const monthLabels = document.querySelectorAll('.month-label');
         monthLabels.forEach(label => {
             label.style.height = `${this.squareSize}px`;
+            label.style.marginBottom = '2px';
         });
+        
+        // Align month labels with contribution grid
+        this.alignMonthLabels();
+    }
+    
+    alignMonthLabels() {
+        const yearLabels = document.querySelector('.year-labels');
+        const monthLabelsContainer = document.querySelector('.month-labels');
+        
+        if (yearLabels && monthLabelsContainer) {
+            // Get the actual height of year labels + minimal margin
+            const yearLabelsHeight = yearLabels.offsetHeight + 2; // Reduced from +10 to +2
+            monthLabelsContainer.style.marginTop = `${yearLabelsHeight}px`;
+        }
     }
     
     checkHorizontalScrollNeed() {
@@ -538,23 +524,9 @@ class ContributionGraph {
     }
     
     updateTooltipPosition(event) {
-        const rect = event.target.getBoundingClientRect();
-        const tooltipRect = this.tooltip.getBoundingClientRect();
-        
-        let left = rect.left + rect.width / 2 - tooltipRect.width / 2;
-        let top = rect.top - tooltipRect.height - 10;
-        
-        // Keep tooltip within viewport
-        if (left < 10) left = 10;
-        if (left + tooltipRect.width > window.innerWidth - 10) {
-            left = window.innerWidth - tooltipRect.width - 10;
-        }
-        if (top < 10) {
-            top = rect.bottom + 10;
-        }
-        
-        this.tooltip.style.left = `${left}px`;
-        this.tooltip.style.top = `${top}px`;
+        // Simple, reliable positioning
+        this.tooltip.style.left = `${event.pageX + 10}px`;
+        this.tooltip.style.top = `${event.pageY - 40}px`;
     }
     
     onSquareClick(event) {
@@ -627,6 +599,11 @@ class ContributionGraph {
 // 🚀 Initialize the contribution graph when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     window.contributionGraph = new ContributionGraph();
+    
+    // Initialize timeline if the elements exist
+    if (document.getElementById('timeline')) {
+        new Timeline();
+    }
 });
 
 // 🎯 Add some additional interactive features
@@ -654,4 +631,354 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     });
 });
+
+// Timeline Class for the embedded timeline section
+class Timeline {
+    constructor() {
+        this.data = [];
+        this.activeFilters = new Set();
+        this.allItems = [];
+        this.init();
+    }
+
+    async init() {
+        await this.loadData();
+        this.createFilters();
+        this.createTimeline();
+        this.hideLoading();
+        this.setupModalEventListeners();
+    }
+
+    async loadData() {
+        try {
+            // Try to load from remote URL first
+            let response;
+            let jsonData;
+            
+            try {
+                response = await fetch('https://favoratti.com/career/data.json');
+                jsonData = await response.json();
+            } catch (corsError) {
+                console.warn('⚠️ CORS error loading remote data, falling back to local data.json');
+                // Fallback to local file
+                response = await fetch('./data.json');
+                jsonData = await response.json();
+            }
+            
+            this.data = jsonData.data || jsonData;
+            
+            // Filter out Study and Work categories
+            this.data = this.data.filter(category => 
+                category.type !== 'Study' && category.type !== 'Work'
+            );
+            
+            // Flatten all items with their categories
+            this.allItems = [];
+            this.data.forEach(category => {
+                category.data.forEach(item => {
+                    // Handle multiple date ranges
+                    if (item.dates && item.dates.length > 0) {
+                        item.dates.forEach(dateRange => {
+                            this.allItems.push({
+                                ...item,
+                                type: category.type,
+                                startDate: dateRange.start,
+                                endDate: dateRange.end,
+                                dateRange: dateRange
+                            });
+                        });
+                    }
+                });
+            });
+
+            // Sort by start date (newest first)
+            this.allItems.sort((a, b) => {
+                const dateA = this.parseDate(a.startDate);
+                const dateB = this.parseDate(b.startDate);
+                return dateB.year - dateA.year || dateB.month - dateA.month;
+            });
+
+            // Initialize all filters as active
+            this.data.forEach(category => {
+                this.activeFilters.add(category.type);
+            });
+
+            console.log('📊 Loaded timeline data:', this.allItems);
+        } catch (error) {
+            console.error('❌ Failed to load timeline data:', error);
+            this.showError();
+        }
+    }
+
+    parseDate(dateString) {
+        const monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                           'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const [monthStr, yearStr] = dateString.split('-');
+        return {
+            month: monthsShort.indexOf(monthStr),
+            year: parseInt(yearStr)
+        };
+    }
+
+    formatDate(dateString) {
+        if (!dateString) return 'Present';
+        const [month, year] = dateString.split('-');
+        return `${month} ${year}`;
+    }
+
+    createFilters() {
+        const filtersContainer = document.getElementById('timelineFilters');
+        if (!filtersContainer) return;
+        
+        const types = [...new Set(this.data.map(category => category.type))];
+
+        types.forEach(type => {
+            // Create filter item container (like activity filters)
+            const filterItem = document.createElement('div');
+            filterItem.className = 'filter-item';
+            
+            // Create checkbox
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `timeline-filter-${type.replace(/\s+/g, '-').toLowerCase()}`;
+            checkbox.checked = true; // Start with all filters active
+            checkbox.dataset.type = type;
+            
+            // Create label
+            const label = document.createElement('label');
+            label.htmlFor = checkbox.id;
+            label.textContent = type;
+            
+            // Add event listener
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                    this.activeFilters.add(type);
+                } else {
+                    this.activeFilters.delete(type);
+                }
+                
+                this.filterTimeline();
+            });
+            
+            // Append elements
+            filterItem.appendChild(checkbox);
+            filterItem.appendChild(label);
+            filtersContainer.appendChild(filterItem);
+        });
+    }
+
+    createTimeline() {
+        const timelineContainer = document.getElementById('timeline');
+        if (!timelineContainer) return;
+        
+        this.allItems.forEach((item, index) => {
+            const timelineItem = document.createElement('div');
+            timelineItem.className = 'timeline-item';
+            timelineItem.dataset.type = item.type;
+            
+            const isOngoing = item.endDate === null;
+            const startDate = this.formatDate(item.startDate);
+            const endDate = this.formatDate(item.endDate);
+            const dateRange = isOngoing ? `${startDate} - Present` : `${startDate} - ${endDate}`;
+            
+            const typeClass = item.type.toLowerCase().replace(/\s+/g, '-');
+            
+            const iconHtml = item.icon ? `<img src="${item.icon}" alt="${item.name}" class="timeline-icon" onerror="this.style.display='none'">` : '';
+            
+            const descriptionHtml = item.description ? `<div class="timeline-description">${item.description}</div>` : '';
+            const linkHtml = item.link ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="timeline-link">${item.link}</a>` : '';
+            const tagsHtml = item.tags && item.tags.length > 0 ? `
+                <div class="timeline-tags">
+                    ${item.tags.map(tag => `<span class="timeline-tag">${tag}</span>`).join('')}
+                </div>
+            ` : '';
+            const screenshots = item.screenshots || item.images || [];
+            const screenshotsHtml = screenshots && screenshots.length > 0 ? `
+                <div class="timeline-screenshots ${screenshots.length === 1 ? 'single-image' : screenshots.length === 2 ? 'two-images' : ''}">
+                    ${screenshots.map((screenshot, idx) => `
+                        <div class="timeline-screenshot" onclick="openScreenshotCarousel(${JSON.stringify(screenshots).replace(/"/g, '&quot;')}, ${idx}, '${item.name}')">
+                            <img src="${screenshot}" alt="${item.name} Screenshot ${idx + 1}" loading="lazy">
+                            <div class="timeline-screenshot-overlay">
+                                <span>🔍 View Full Size</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            ` : '';
+            
+            timelineItem.innerHTML = `
+                <div class="timeline-content ${isOngoing ? 'ongoing' : ''}">
+                    <div class="timeline-header">
+                        <div class="timeline-info">
+                            ${iconHtml}
+                            <div class="timeline-text">
+                                <div class="timeline-title">${item.name}</div>
+                                ${item.company ? `<div class="timeline-company">${item.company}</div>` : ''}
+                                ${item.description ? `<div class="timeline-description-header">${item.description}</div>` : ''}
+                                ${linkHtml}
+                            </div>
+                        </div>
+                        <div class="timeline-dates">${dateRange}</div>
+                    </div>
+                    ${screenshotsHtml}
+                    <div class="timeline-footer">
+                        ${tagsHtml}
+                        <div class="timeline-type type-${typeClass}">${item.type}</div>
+                    </div>
+                </div>
+            `;
+
+            timelineContainer.appendChild(timelineItem);
+        });
+    }
+
+    filterTimeline() {
+        const items = document.querySelectorAll('.timeline-item');
+        
+        items.forEach(item => {
+            const type = item.dataset.type;
+            
+            if (this.activeFilters.has(type)) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    }
+
+    hideLoading() {
+        const loading = document.getElementById('timelineLoading');
+        const timeline = document.getElementById('timeline');
+        if (loading) loading.style.display = 'none';
+        if (timeline) timeline.style.display = 'block';
+    }
+
+    showError() {
+        const loading = document.getElementById('timelineLoading');
+        const error = document.getElementById('timelineError');
+        if (loading) loading.style.display = 'none';
+        if (error) error.style.display = 'block';
+    }
+
+    setupModalEventListeners() {
+        // Modal event listeners
+        const modal = document.getElementById('screenshotModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalPrev = document.getElementById('modalPrev');
+        const modalNext = document.getElementById('modalNext');
+        
+        if (modalClose) modalClose.addEventListener('click', closeScreenshotModal);
+        if (modalPrev) modalPrev.addEventListener('click', prevModalSlide);
+        if (modalNext) modalNext.addEventListener('click', nextModalSlide);
+        
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeScreenshotModal();
+                }
+            });
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal && modal.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeScreenshotModal();
+                } else if (e.key === 'ArrowLeft') {
+                    prevModalSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextModalSlide();
+                }
+            }
+        });
+    }
+}
+
+// Modal carousel state
+let modalCarouselState = {
+    images: [],
+    currentSlide: 0,
+    totalSlides: 0
+};
+
+// Screenshot modal functionality
+function openScreenshotCarousel(images, startIndex = 0, projectName = '') {
+    modalCarouselState.images = images;
+    modalCarouselState.currentSlide = startIndex;
+    modalCarouselState.totalSlides = images.length;
+
+    const modal = document.getElementById('screenshotModal');
+    const track = document.getElementById('modalCarouselTrack');
+    const indicators = document.getElementById('modalIndicators');
+    const prevBtn = document.getElementById('modalPrev');
+    const nextBtn = document.getElementById('modalNext');
+
+    if (!modal || !track || !indicators) return;
+
+    // Generate carousel slides
+    track.innerHTML = images.map((img, idx) => `
+        <div class="modal-carousel-slide">
+            <img src="${img}" alt="${projectName} Screenshot ${idx + 1}">
+        </div>
+    `).join('');
+
+    // Generate indicators
+    indicators.innerHTML = images.map((_, idx) => `
+        <div class="modal-carousel-indicator ${idx === startIndex ? 'active' : ''}" onclick="goToModalSlide(${idx})"></div>
+    `).join('');
+
+    // Show/hide navigation for single images
+    if (images.length > 1) {
+        if (prevBtn) prevBtn.style.display = 'flex';
+        if (nextBtn) nextBtn.style.display = 'flex';
+        indicators.style.display = 'flex';
+    } else {
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        indicators.style.display = 'none';
+    }
+
+    // Set initial position
+    updateModalCarousel();
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function updateModalCarousel() {
+    const track = document.getElementById('modalCarouselTrack');
+    const indicators = document.querySelectorAll('.modal-carousel-indicator');
+    
+    if (track) {
+        track.style.transform = `translateX(-${modalCarouselState.currentSlide * 100}%)`;
+    }
+    
+    indicators.forEach((indicator, idx) => {
+        indicator.classList.toggle('active', idx === modalCarouselState.currentSlide);
+    });
+}
+
+function nextModalSlide() {
+    modalCarouselState.currentSlide = (modalCarouselState.currentSlide + 1) % modalCarouselState.totalSlides;
+    updateModalCarousel();
+}
+
+function prevModalSlide() {
+    modalCarouselState.currentSlide = modalCarouselState.currentSlide === 0 ? 
+        modalCarouselState.totalSlides - 1 : modalCarouselState.currentSlide - 1;
+    updateModalCarousel();
+}
+
+function goToModalSlide(slideIndex) {
+    modalCarouselState.currentSlide = slideIndex;
+    updateModalCarousel();
+}
+
+function closeScreenshotModal() {
+    const modal = document.getElementById('screenshotModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
 

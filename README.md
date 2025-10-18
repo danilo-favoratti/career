@@ -36,9 +36,9 @@ For enhanced development experience with API endpoints and hot reload:
    ```
 
 3. **Access the application:**
-   - 🏠 Main app: `http://localhost:5050`
-   - ⏰ Timeline view: `http://localhost:5050/timeline.html`
-   - 📊 API data: `http://localhost:5050/api/data`
+   - 🏠 Main app: `http://localhost:4040`
+   - ⏰ Timeline view: `http://localhost:4040/timeline.html`
+   - 📊 API data: `http://localhost:4040/api/data`
 
 ## 🌐 Data Source
 
