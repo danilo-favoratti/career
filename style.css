@@ -470,23 +470,23 @@ header p {
     body {
         padding: 10px;
     }
-    
+
     header h1 {
         font-size: 2rem;
     }
-    
+
     header p {
         font-size: 1rem;
     }
-    
+
     .graph-container {
         padding: 15px;
     }
-    
+
     .month-labels {
         margin-right: 15px;
     }
-    
+
     .month-label {
         width: 25px;
         font-size: 11px;
@@ -510,6 +510,7 @@ header p {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -663,10 +664,21 @@ header p {
 }
 
 /* Orange dots for all project types */
-.timeline-item[data-type="Client Projects"]::before { background-color: #ff8c42; }
-.timeline-item[data-type="Side Projects"]::before { background-color: #ff8c42; }
-.timeline-item[data-type="Own Projects"]::before { background-color: #ff8c42; }
-.timeline-item[data-type="Freelancer"]::before { background-color: #ff8c42; }
+.timeline-item[data-type="Client Projects"]::before {
+    background-color: #ff8c42;
+}
+
+.timeline-item[data-type="Side Projects"]::before {
+    background-color: #ff8c42;
+}
+
+.timeline-item[data-type="Own Projects"]::before {
+    background-color: #ff8c42;
+}
+
+.timeline-item[data-type="Freelancer"]::before {
+    background-color: #ff8c42;
+}
 
 .timeline-item:hover::before {
     transform: scale(1.3);
@@ -907,7 +919,7 @@ header p {
     justify-content: center;
     color: white;
     font-weight: bold;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     border-radius: 8px;
     backdrop-filter: blur(2px);
     z-index: 2;
@@ -952,40 +964,44 @@ header p {
 }
 
 /* Type colors with enhanced styling */
-.type-client-projects { 
-    --chip-color-1: #f85149; 
-    --chip-color-2: #da3633; 
-    --chip-border: #f85149; 
+.type-client-projects {
+    --chip-color-1: #f85149;
+    --chip-color-2: #da3633;
+    --chip-border: #f85149;
     background: linear-gradient(135deg, #ff6b6b, #f85149, #da3633) !important;
-    color: white; 
+    color: white;
 }
-.type-side-projects { 
-    --chip-color-1: #a5a5a5; 
-    --chip-color-2: #8b8b8b; 
-    --chip-border: #a5a5a5; 
+
+.type-side-projects {
+    --chip-color-1: #a5a5a5;
+    --chip-color-2: #8b8b8b;
+    --chip-border: #a5a5a5;
     background: linear-gradient(135deg, #c0c0c0, #a5a5a5, #8b8b8b) !important;
-    color: white; 
+    color: white;
 }
-.type-own-projects { 
-    --chip-color-1: #d2a8ff; 
-    --chip-color-2: #b794f6; 
-    --chip-border: #d2a8ff; 
+
+.type-own-projects {
+    --chip-color-1: #d2a8ff;
+    --chip-color-2: #b794f6;
+    --chip-border: #d2a8ff;
     background: linear-gradient(135deg, #e9d5ff, #d2a8ff, #b794f6) !important;
-    color: #0d1117; 
+    color: #0d1117;
 }
-.type-freelancer { 
-    --chip-color-1: #ffa657; 
-    --chip-color-2: #ff8c42; 
-    --chip-border: #ffa657; 
+
+.type-freelancer {
+    --chip-color-1: #ffa657;
+    --chip-color-2: #ff8c42;
+    --chip-border: #ffa657;
     background: linear-gradient(135deg, #ffb84d, #ffa657, #ff8c42) !important;
-    color: #0d1117; 
+    color: #0d1117;
 }
-.type-gap-year { 
-    --chip-color-1: #7c3aed; 
-    --chip-color-2: #6d28d9; 
-    --chip-border: #7c3aed; 
+
+.type-gap-year {
+    --chip-color-1: #7c3aed;
+    --chip-color-2: #6d28d9;
+    --chip-border: #7c3aed;
     background: linear-gradient(135deg, #8b5cf6, #7c3aed, #6d28d9) !important;
-    color: white; 
+    color: white;
 }
 
 .ongoing {
@@ -1007,8 +1023,15 @@ header p {
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 /* Modal for full-size screenshots */
@@ -1179,82 +1202,86 @@ header p {
     .container {
         padding: 0.2vh 0;
     }
-    
+
     .name-section {
         padding: 15px;
         margin-bottom: 8px;
     }
-    
+
     .profile-container {
         gap: 15px;
     }
-    
+
     .profile-picture {
         width: 120px;
         height: 120px;
         border-width: 3px;
     }
-    
+
     .name-section-center h1 {
         font-size: 2.2rem;
         margin-bottom: 5px;
     }
-    
+
     .subtitle {
         font-size: 1.3rem;
     }
-    
+
     .social-icons {
-        grid-template-columns: repeat(6, 1fr);
-        gap: 6px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        width: fit-content;
+        gap: 15px;
+        margin: 0 auto;
     }
-    
+
     .social-icon {
         width: 45px;
         height: 45px;
     }
-    
+
     .top-filters {
         padding: 5px;
         margin-bottom: 3px;
     }
-    
+
     .top-filters h2 {
         font-size: 1.5rem;
         margin-top: 15px;
         margin-bottom: 5px;
     }
-    
+
     .top-filters p {
         font-size: 1rem;
         margin-bottom: 5px;
     }
-    
+
     .filters-container {
         padding: 10px;
     }
-    
+
     .graph-container {
         max-height: 45vh;
         padding: 8px;
     }
-    
+
     .timeline-section {
         margin-top: 3px;
         padding: 10px;
         min-height: 40vh;
     }
-    
+
     .timeline-link-container {
         bottom: 15px;
         right: 15px;
     }
-    
+
     .timeline-link-btn {
         padding: 10px 16px;
         font-size: 13px;
     }
-    
+
     .timeline-container {
         padding: 0 10px;
     }
@@ -1401,14 +1428,262 @@ header p {
         font-size: 1.5rem;
         margin-top: 15px;
     }
-    
+
     .timeline-header p {
         font-size: 1rem;
         margin-bottom: 5px;
     }
-    
+
     .timeline-section .timeline-header {
         padding: 5px;
         margin-bottom: 3px;
+    }
+}
+
+/* Clippy Widget */
+.clippy-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    padding: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+}
+
+.clippy-img {
+    width: 160px;
+    height: auto;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
+    animation: floating 3s ease-in-out infinite;
+}
+
+.clippy-container:hover {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Mobile Fixes */
+/* Mobile Fixes */
+@media (max-width: 768px) {
+
+    /* Prevent horizontal scroll */
+    html,
+    body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: block;
+        /* Override flex to prevent stretching */
+        width: 100%;
+        max-width: 100%;
+        min-width: 0 !important;
+        /* Force reset of fit-content */
+        padding: 0 10px;
+        /* Increased padding */
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+
+    .timeline-section,
+    .timeline-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 0 10px;
+        /* Added padding back to ensure safe area */
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .timeline-content {
+        margin: 0 auto 15px auto;
+        width: 100%;
+        min-width: 0 !important;
+        max-width: 100%;
+        padding: 15px;
+        /* Reduced internal padding from 24px */
+        box-sizing: border-box;
+    }
+
+    .timeline-dates {
+        white-space: normal;
+        /* Allow wrapping if date is somehow too long */
+    }
+
+    /* Hide Graph Section on Mobile */
+    .graph-container {
+        display: none !important;
+    }
+
+    .graph-header h2 {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        padding: 0 10px;
+    }
+
+    .graph-scroll {
+        overflow-x: auto;
+        padding-bottom: 5px;
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scrolling on iOS */
+    }
+
+    /* Ensure the graph container handles overflow gracefully */
+    .graph-main {
+        overflow: hidden;
+        /* Let scroll handle the inner content */
+    }
+
+    /* Prevent filters from being too squeezed */
+    .filter-checkboxes,
+    .filters,
+    #timelineFilters {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        max-width: 300px;
+        /* Optional: limit width for better aesthetics */
+        margin: 0 auto;
+    }
+
+    .filter-item {
+        padding: 8px 12px;
+        font-size: 0.95rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Timeline Vertical Distribution Fixes */
+    /* Remove timeline line and balls on mobile */
+    .timeline {
+        padding-left: 0;
+    }
+
+    .timeline::before {
+        display: none;
+    }
+
+    .timeline-item::before {
+        display: none;
+    }
+
+    .timeline-item .timeline-header {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .timeline-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .timeline-icon {
+        margin-right: 0;
+        margin-bottom: 5px;
+        width: 100px;
+        height: 100px;
+        border-width: 3px;
+    }
+
+    .timeline-text {
+        text-align: center;
+        width: 100%;
+    }
+
+    .timeline-title,
+    .timeline-company,
+    .timeline-description-header {
+        text-align: center;
+    }
+
+    .timeline-link {
+        text-align: center;
+        display: inline-block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: bottom;
+        padding: 0 5px;
+    }
+
+    .timeline-dates {
+        position: static;
+        text-align: center;
+        width: 100%;
+        margin-top: 5px;
+        justify-content: center;
+        white-space: normal;
+    }
+
+    /* Enforce single column for screenshots on mobile */
+    .timeline-screenshots,
+    .timeline-screenshots.single-image,
+    .timeline-screenshots.two-images {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    /* Reset specific column assignments so they stack */
+    .timeline-screenshots .timeline-screenshot:nth-child(1),
+    .timeline-screenshots .timeline-screenshot:nth-child(2),
+    .timeline-screenshots .timeline-screenshot:nth-child(3) {
+        grid-column: auto !important;
+    }
+
+    .timeline-footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .timeline-type {
+        align-self: center;
+        margin-top: 5px;
+    }
+
+    .timeline-tags {
+        justify-content: center;
+    }
+
+    /* Adjust Clippy size on mobile to not be overwhelming */
+    .clippy-img {
+        width: 100px;
+    }
+
+    .clippy-container {
+        bottom: 10px;
+        right: 10px;
     }
 }
